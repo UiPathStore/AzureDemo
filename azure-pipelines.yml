@@ -24,3 +24,8 @@ steps:
     outputType: 'Process'
     orchestratorConnection: 'AzureeDemo'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+- task: UiPathDeploy@4
+  inputs:
+    orchestratorConnection: 'AzureeDemo'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
+    folderName: 'Rachana'
