@@ -8,22 +8,25 @@ trigger:
  
 pool:
   name: rachana
-demands:
-- npm
-- 'Agent.Version -gtVersion 2.163.1'
  
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+- job: MyJob
+  demands:
+  - npm
+  - 'Agent.Version -gtVersion 2.163.1'  # Enclose the demand in quotes
  
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
  
-- task: UiPathRunJob@4
-  inputs:
-    orchestratorConnection: 'AzureeDemo'  # Make sure this matches your actual orchestrator connection name
-    processName: 'AzureeDemo'
-    folderName: 'Rachana'
-    user: 'izd01\13040'
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
+ 
+  - task: UiPathRunJob@4
+    inputs:
+      orchestratorConnection: 'AzureeDemo'
+      processName: 'AzureeDemo'
+      folderName: 'Rachana'
+      user: 'izd01\13040'
