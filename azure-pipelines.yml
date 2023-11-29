@@ -10,7 +10,7 @@ pool:
   name: rachana
 demands:
 - npm
-- Agent.Version -gtVersion 2.163.1
+- 'Agent.Version -gtVersion 2.163.1'
  
 steps:
 - script: echo Hello, world!
