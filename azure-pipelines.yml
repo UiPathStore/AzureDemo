@@ -7,7 +7,7 @@ trigger:
 - main
  
 pool:
-  rachana
+  rachanamane
  
 steps:
 - script: echo Hello, world!
