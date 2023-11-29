@@ -2,31 +2,24 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-
+ 
 trigger:
 - main
  
 pool:
-  name: rachana
+  rachana
  
-jobs:
-- job: MyJob
-  demands:
-  - npm
-  - 'Agent.Version -gtVersion 2.163.1'  # Enclose the demand in quotes
+steps:
+- script: echo Hello, world!
+  displayName: 'Run Uipath Process'
  
-  steps:
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
- 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
- 
-  - task: UiPathRunJob@4
-    inputs:
-      orchestratorConnection: 'AzureeDemo'
-      processName: 'AzureeDemo'
-      folderName: 'Rachana'
-      user: 'izd01\13040'
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: UiPathRunJob@4
+  inputs:
+    orchestratorConnection: 'AzureeDemo'
+    processName: 'AzureeDemo'
+    folderName: 'Rachana'
+    user: 'izd01\13040'
